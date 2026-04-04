@@ -20,6 +20,11 @@ const App = () => {
   const handleBad = () => {
     setBad(bad + 1);
   };
+
+  const all = good + bad + neutral;
+  const average = (good + bad + neutral) / 3;
+  const percentage = (good / all) * 100;
+
   return (
     <div>
       <h1>Give feedback</h1>
@@ -30,6 +35,9 @@ const App = () => {
       <p>Good: {good}</p>
       <p>Neutral: {neutral}</p>
       <p>Bad: {bad}</p>
+      <p>All: {all}</p>
+      <p>Average: {average}</p>
+      <p>Percentage: {percentage}%</p>
     </div>
   );
 };
