@@ -6,9 +6,12 @@ const Button = ({ onClick, text }) => {
 
 const StatisticLine = ({ name, value }) => {
   return (
-    <p>
-      {name}: {value}
-    </p>
+    <tbody>
+      <tr>
+        <td>{name}</td>
+        <td>{value}</td>
+      </tr>
+    </tbody>
   );
 };
 
@@ -24,12 +27,18 @@ const Statistics = ({ good, bad, neutral, all, average, percentage }) => {
     return (
       <div>
         <h1>Statistics</h1>
-        <StatisticLine name="Good" value={good} />
-        <StatisticLine name="Neutral" value={neutral} />
-        <StatisticLine name="Bad" value={bad} />
-        <StatisticLine name="All" value={all} />
-        <StatisticLine name="Average" value={average} />
-        <StatisticLine name="Percentage" value={percentage} />
+
+        <table>
+          <StatisticLine name="Good" value={good} />
+          <StatisticLine name="Neutral" value={neutral} />
+          <StatisticLine name="Bad" value={bad} />
+          <StatisticLine name="All" value={all} />
+          <StatisticLine name="Average" value={average.toFixed(1)} />
+          <StatisticLine
+            name="Percentage"
+            value={percentage.toFixed(1) + "%"}
+          />
+        </table>
       </div>
     );
   }
