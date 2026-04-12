@@ -27,12 +27,19 @@ const App = () => {
     const random = Math.floor(Math.random() * anecdotes.length);
     setSelected(random);
   };
+
+  const maxIndex = votes.indexOf(Math.max(...votes));
+
   return (
     <div>
+      <h1>Anecdote of the day</h1>
       <p>{anecdotes[selected]}</p>
       <p>Has {votes[selected]} votes</p>
       <button onClick={selectAnecdote}>Next Anecdote</button>
       <button onClick={increaseVote}>Vote</button>
+      <h1>Anecdote with most votes</h1>
+      <p>{anecdotes[maxIndex]}</p>
+      <p>Has {votes[maxIndex]} votes</p>
     </div>
   );
 };
