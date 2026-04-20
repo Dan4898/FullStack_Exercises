@@ -7,6 +7,7 @@ const Content = (props) => {
       <Part part={props.parts[1]} />
       <Part part={props.parts[2]} />
       <Part part={props.parts[3]} />
+      <Part part={props.parts[4]} />
     </div>
   );
 };
@@ -20,17 +21,14 @@ const Part = (props) => (
 const Total = (props) => <p>Number of exercises {props.total}</p>;
 
 const Course = ({ course }) => {
+  const total = course.parts.reduce((sum, order) => {
+    return sum + order.exercises;
+  }, 0);
   return (
     <div>
       <Header course={course.name} />
       <Content parts={course.parts} />
-      <Total
-        total={
-          course.parts[0].exercises +
-          course.parts[1].exercises +
-          course.parts[2].exercises
-        }
-      />
+      <Total total={total} />
     </div>
   );
 };
@@ -59,6 +57,11 @@ const App = () => {
         name: "Redux",
         exercises: 11,
         id: 4,
+      },
+      {
+        name: "Angular",
+        exercises: 15,
+        id: 5,
       },
     ],
   };
