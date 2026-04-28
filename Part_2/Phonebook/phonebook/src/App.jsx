@@ -11,17 +11,13 @@ const App = () => {
     console.log("Button clicked", event.target);
 
     if (persons.some((person) => person.name === newName)) {
-      alert(`${newName} already exists`);
+      alert(`${newName} is already added to Phonebook`);
     } else {
       const nameObject = {
         name: newName,
       };
 
       setPersons(persons.concat(nameObject));
-
-      console.log(nameObject);
-      console.log(persons);
-      console.log(newName);
       setNewName("");
     }
   };
